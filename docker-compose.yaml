@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # 1. LA BASE DE DATOS (PostgreSQL)
+  db_friendapp:
+    image: postgres:15-alpine
+    container_name: friendapp_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: friendapp_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. EL GESTOR VISUAL (pgAdmin) - Opcional pero recomendado
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: friendapp_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db_friendapp
+
+volumes:
+  postgres_data:
