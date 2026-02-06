@@ -1,5 +1,6 @@
 package com.pannermanagement.PlannerManagement.infrastructure.entity;
 
+import com.pannermanagement.PlannerManagement.infrastructure.model.AnimicStateEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,11 +18,11 @@ public class AnimicStateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long animicStateId;
+    public AnimicStateEnum state;
     @ManyToOne()
     @JoinColumn(name="friend_id")
     public String friendId;
     public Date date;
-    public String state;
     public String note;
 
 }
