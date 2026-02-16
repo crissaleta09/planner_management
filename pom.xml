@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.10</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pannermanagement</groupId>
-	<artifactId>PlannerManagement</artifactId>
+	<groupId>com</groupId>
+	<artifactId>plannermanagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>PlannerManagement</name>
-	<description>Demo project for Spring Boot</description>
+	<packaging>pom</packaging>
+	<name>plannermanagement</name>
+	<description>Application for management of friends</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -20,6 +20,11 @@
 	<developers>
 		<developer/>
 	</developers>
+	<modules>
+		<module>domain</module>
+		<module>infrastructure</module>
+		<module>application</module>
+	</modules>
 	<scm>
 		<connection/>
 		<developerConnection/>
@@ -27,7 +32,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>25</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -36,22 +41,16 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- Actuator para monitorizacion y gestion de la aplicacion -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<!-- Necesaria para la seguridad de actuator, implementa autenticacion basica -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -60,28 +59,11 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.3.0</version>
 		</dependency>
-		<!-- Thymeleaf sirve para poder devolver vistas HTML desde el backend mediante la anotacion @Controller-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<!-- Devtools para recarga automatica en el entorno de desarrollo -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<!-- Driver de PostgreSQL para conexion a base de datos PostgreSQL -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+
 	</dependencies>
 
 	<build>
