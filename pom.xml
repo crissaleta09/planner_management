@@ -21,9 +21,9 @@
 		<developer/>
 	</developers>
 	<modules>
-		<module>domain</module>
-		<module>infrastructure</module>
-		<module>application</module>
+		<module>com.plannermanagement.domain</module>
+		<module>com.plannermanagement.application</module>
+		<module>com.plannermanagement.infrastructure</module>
 	</modules>
 	<scm>
 		<connection/>
@@ -58,11 +58,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.3.0</version>
-		</dependency>
+
 
 	</dependencies>
 
